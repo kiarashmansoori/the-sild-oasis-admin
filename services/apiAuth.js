@@ -6,13 +6,16 @@ export async function sendAuthInfo(body) {
     return data;
   } catch (error) {
     console.log(error);
-    return { message: "SERVER ERROR" };
+    return {
+      success: false,
+      message: error?.response?.data?.message || "SERVER ERROR",
+    };
   }
 }
 
 export async function Logout(params) {
   try {
-    const { data } = axios.post("/api/Auth/Logout");
+    const { data } = await axios.post("/api/Auth/Logout");
     return data;
   } catch (error) {
     console.log(error);
