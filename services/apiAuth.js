@@ -19,7 +19,10 @@ export async function Logout(params) {
     return data;
   } catch (error) {
     console.log(error);
-    return { message: "SERVER ERROR" };
+    return {
+      success: false,
+      message: error?.response?.data?.message || "SERVER ERROR",
+    };
   }
 }
 export async function createUser(body) {
