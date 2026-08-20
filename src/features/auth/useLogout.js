@@ -10,6 +10,7 @@ export function useLogout(params) {
     mutationFn: Logout,
     onSuccess: () => {
       toast.success("Logout successfuly");
+      router.refresh();
       router.push("/login");
     },
   });

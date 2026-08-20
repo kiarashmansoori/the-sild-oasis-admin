@@ -10,6 +10,7 @@ export function useAuth() {
     mutationFn: (boody) => sendAuthInfo(boody),
     onSuccess: () => {
       toast.success("Login successfuly");
+      router.refresh();
       router.push("/dashboard");
     },
     onError: () => {
